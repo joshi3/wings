@@ -839,6 +839,12 @@
     <string name="quick_pulldown_right">Pulldown statusbar from right side</string>
     <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
 
+    <!-- Incall vibrate options -->
+    <string name="incall_vibration_category">In-call vibration options</string>
+    <string name="incall_vibrate_connect_title">Vibrate on connect</string>
+    <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
+    <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
+
     <!-- Fingerprint unlock -->
     <string name="fp_unlock_keystore_title">Force FP authentication</string>
     <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot or lockdown</string>

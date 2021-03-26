@@ -46,6 +46,7 @@ import com.nusantara.support.preferences.SystemSettingSeekBarPreference;
 import com.nusantara.support.preferences.GlobalSettingMasterSwitchPreference;
 
 import com.nusantara.wings.UtilsNad;
+import com.nusantara.wings.preferences.Utils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notifications extends SettingsPreferenceFragment
@@ -69,6 +70,8 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
     private ListPreference mColorMode;
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +137,12 @@ public class Notifications extends SettingsPreferenceFragment
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
-    }
+
+	PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!Utils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
+        }
+	}
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
